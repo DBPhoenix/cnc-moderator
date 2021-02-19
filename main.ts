@@ -14,8 +14,8 @@ const commands: {
   [name: string]: Command;
 } = undefined;
 
-for (const file of readdirSync('./commands')) {
-  const command: Command = require(`./commands/${file}`);
+for (const file of readdirSync('./src/commands')) {
+  const command: Command = require(`./src/commands/${file}`);
   commands[command.name] = command;
 }
 

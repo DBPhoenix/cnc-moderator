@@ -20,7 +20,7 @@ for (const file of readdirSync('./commands')) {
 }
 
 client.on('ready', () => {
-  setInterval(safeData, 10000);
+  setInterval(safeData, 3600000);
 });
 
 client.on('guildCreate', guild => {

@@ -12,7 +12,7 @@ export const message_data: Messages = require('./data/messages.json');
 
 const commands: {
   [name: string]: Command;
-} = undefined;
+} = {};
 
 for (const file of readdirSync('./src/commands')) {
   const command: Command = require(`./src/commands/${file}`);

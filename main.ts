@@ -15,7 +15,7 @@ const commands: {
 } = {};
 
 for (const file of readdirSync('./src/commands')) {
-  const command: Command = require(`./src/commands/${file}`);
+  const command: Command = require(`./src/commands/${file}`).default;
   commands[command.name] = command;
 }
 

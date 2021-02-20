@@ -4,7 +4,7 @@ import {message_data} from '../../main';
 
 export default {
   name: 'awards',
-  execute(message: Message) {
+  exec(message: Message) {
     const awards = {
       general: {
         id: '812297296246997016',

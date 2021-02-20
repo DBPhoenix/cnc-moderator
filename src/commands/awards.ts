@@ -53,6 +53,10 @@ export default {
     }
 
     for (const channel of Object.values(awards)) {
+      message.guild.roles.fetch(channel.role_id).then(role => {
+        role.members.each(member => member.roles.remove(channel.role_id));
+      });
+      
       message.guild.members.fetch(channel.user_id).then(member => {
         member.roles.add(channel.role_id);
       });

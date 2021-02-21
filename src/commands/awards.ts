@@ -1,32 +1,18 @@
 import {Message} from 'discord.js';
 
 import {message_data} from '../../main';
+import Channels from '../../data/channels.json';
 
 export default {
   name: 'awards',
   exec(message: Message) {
-    const awards = {
-      general: {
-        id: '812297296246997016',
-        role_id: '812319275552997388',
-        user_id: undefined,
-      },
-      ideas: {
-        id: '812297458734465055',
-        role_id: '812319337335226430',
-        user_id: undefined,
-      },
-      help: {
-        id: '812297635318202388',
-        role_id: '812319549781311509',
-        user_id: undefined,
-      },
-      share: {
-        id: '812299220476231680',
-        role_id: '812319667863027727',
-        user_id: undefined,
-      },
-    };
+    let awards: {
+      [channel: string]: {
+        id: string;
+        role_id: string;
+        user_id?: string;
+      }
+    } = Channels;
 
     for (const [key, channel] of Object.entries(awards)) {
       let best: {
@@ -49,7 +35,7 @@ export default {
         }
       }
 
-      awards[key].user_id = best.member_id;
+      awards[key]['user_id'] = best.member_id;
     }
 
     for (const channel of Object.values(awards)) {
